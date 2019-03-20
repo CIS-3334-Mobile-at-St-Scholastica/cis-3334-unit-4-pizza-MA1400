@@ -9,6 +9,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends AppCompatActivity implements updateViewInterface {
 
     RadioButton rbSmall;
@@ -59,9 +61,46 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
 
         //display a pop up message for a long period of time
+        if (chkbxDelivery.isChecked()){
+            PizzaOrder.setDeli  very(true);
+        }
+        else{
+            PizzaOrder.setDelivery(false);
+        }
+
+
+        String topping;
+        String strSize;
+        Boolean extraCheese;
+
+        topping = spinnerToppings.getSelectedItem().toString();
+
+        if ( rbSmall.isChecked()){
+            strSize = "small";
+        }
+        else if (rbMedium.isChecked()){
+            strSize = "medium";
+        }
+        else{
+            strSize = "large";
+        }
+
+        if (chkbxCheese.isChecked()){
+            extraCheese = true;
+        }
+        else{
+            extraCheese = false;
+        }
+
+        orderDescription = (PizzaOrder.OrderPizza(topping, strSize, extraCheese );
+        txtTotal.setText(getTotalBill().toString());
+        //display a pop up message for a long period of time
         Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
         // add this pizza to the textview the lists the pizzas
         txtPizzasOrdered.append(orderDescription+"\n");
 
     }
 }
+
+
+

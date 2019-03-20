@@ -22,7 +22,7 @@ public class PizzaOrder implements PizzaOrderInterface {
     }
 
     @Override
-    public String OrderPizza(String topping, String strSize, boolean extraCheese){
+    public  String OrderPizza(String topping, String strSize, boolean extraCheese){
         Pizza.pizzaSize size;
         if (strSize.equalsIgnoreCase("small")) {
             size = Pizza.pizzaSize.SMALL;
